@@ -1,0 +1,52 @@
+<!-- start: LOGIN -->
+<div class="row" ng-controller='AuthCtrl'>
+    <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div class="logo">
+            <img src="assets/images/logo_antigo.png" alt="{{app.name}}" />
+        </div>
+        <!-- start: LOGIN BOX -->
+        <div class="box-login">
+            <form name="Form" class="form-login" ng-submit='login(Form)' novalidate>
+                <fieldset>
+                    <legend translate="page.login.MESSAGE">
+                        Sign in to your account
+                    </legend>
+                    <p translate="page.login.MESSAGE_INSERT">
+                        Please enter your name and password to log in.
+                    </p>
+                    <div class="form-group" ng-class="{'has-error':Form.username.$dirty && Form.username.$invalid, 'has-success':Form.username.$valid}">
+                        <span class="input-icon">
+							<input type="text" class="form-control" name="username" placeholder="{{'page.login.MESSAGE_LOGIN' | translate}}" ng-model='user.login' required />
+							<i class="fa fa-user"></i> </span>
+                        <span class="error text-small block" ng-if="Form.username.$dirty && Form.username.$invalid">O login é requerido!</span>
+                        <span class="success text-small" ng-if="Form.username.$valid">Login OK!</span>
+                    </div>
+                    <div class="form-group form-actions" ng-class="{'has-error':Form.password.$dirty && Form.password.$invalid, 'has-success':Form.password.$valid}">
+                        <span class="input-icon">
+							<input type="password" class="form-control password" name="password" placeholder="{{'page.login.MESSAGE_PASSWORD' | translate}}" ng-model='user.password' required />
+							<i class="fa fa-lock"></i>
+                            <span class="error text-small block" ng-if="Form.password.$dirty && Form.password.$invalid">A senha é requerida!</span>
+                            <span class="success text-small" ng-if="Form.username.$valid">Senha OK!</span>
+						</span>
+                    </div>
+                    <div class="form-actions">                        
+                        <button name="submit" class="btn btn-primary pull-right" type="submit">
+                            Login <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                    <a ui-sref="login.forgot">
+                        {{'page.login.MESSAGE_FORGOT' | translate}}
+                    </a> 
+                </fieldset>
+            </form>
+            <!-- start: COPYRIGHT -->
+            <div class="copyright">
+                {{app.year}} &copy; {{ app.name }} by {{ app.author }}.
+            </div>
+            <!-- end: COPYRIGHT -->
+
+        </div>
+        <!-- end: LOGIN BOX -->
+    </div>
+</div>
+<!-- end: LOGIN -->

@@ -1,0 +1,77 @@
+<div class="container-fluid container-fullw" ng-controller="ChartNowCtrl">
+	<div class="row  margin-bottom-20">
+		<div class="col-offset-sm-12">
+			<p class="margin-bottom-20">
+				Aqui você pode consultar em tempo real as potências consumidas pelos circuitos.
+			</p>
+		</div>	
+	</div>
+	<div class="row margin-bottom-30">
+		<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
+			<h5 class="over-title margin-bottom-15">Todos os <span class="text-bold">Circuitos</span></h5>
+			<div class="row">
+				<div>
+					<div class="col-sm-12">
+						<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data" chart-legend="lineChart1"></canvas>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6">
+			<h5 class="over-title margin-bottom-15">Gráfico do <span class="text-bold">{{circuito1}}</span></h5>
+			<div class="row">
+				<div>
+					<div class="col-sm-12">
+						<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data0" chart-legend="lineChart1"></canvas>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<h5 class="over-title margin-bottom-15">Gráfico do <span class="text-bold">{{circuito2}}</span></h5>
+			<div class="row">
+				<div>
+					<div class="col-sm-12">
+						<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data1" chart-legend="lineChart1"></canvas>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h5 class="over-title margin-bottom-15">Gráfico do <span class="text-bold">{{circuito3}}</span></h5>
+			<div class="row">
+				<div>
+					<div class="col-sm-12">
+						<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data2" chart-legend="lineChart1"></canvas>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<h5 class="over-title margin-bottom-15">Gráfico do <span class="text-bold">{{circuito4}}</span></h5>
+			<div class="row">
+				<div>
+					<div class="col-sm-12">
+						<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data3" chart-legend="lineChart1"></canvas>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h5 class="over-title margin-bottom-15">Gráfico do <span class="text-bold">{{circuito5}}</span></h5>
+			<div class="row">
+				<div>
+					<div class="col-sm-12">
+						<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data4" chart-legend="lineChart1"></canvas>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">	
+	<div class="col-md-12">
+		<div class="form-group">
+			<label for="nome">
+				Nome
+			</label>
+			<input type="text" class="form-control underline" id="nome" ng-model="alert.nome" required>
+		</div>
+		<div class="form-group">
+			<label class="control-label">
+				Potência
+			</label>
+			<input type="number" class="form-control underline" id="potencia" ng-model="alert.potencia" ng-min="0" required>
+		</div>
+		<div class="form-group">
+			<label>
+				Circuito
+			</label>
+			<ui-select ng-model="alert.circuito" theme="bootstrap">
+				<ui-select-match placeholder="Selecione um circuito">
+					{{$select.selected.nome}}
+				</ui-select-match>
+				<ui-select-choices repeat="item in circuitos | filter: $select.search" required>
+					<div ng-bind-html="item.nome | highlight: $select.search"></div>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+		<div class="form-group">
+			<br/>
+			<div class="checkbox clip-check check-primary">
+				<input type="checkbox" id="habilitado" value="1" ng-model="alert.habilitado">
+				<label for="habilitado">
+					Habilitado
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-offset-10 col-md-2">							
+				<div class="form-group">
+					<button type="submit" class="btn btn-wide btn-primary w100">Salvar</button>
+				</div>
+			</div>
+		</div>	
+	</div>	
+</div>	

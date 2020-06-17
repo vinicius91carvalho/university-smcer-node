@@ -1,0 +1,17 @@
+<div class="container-fluid container-fullw">
+	<div class="row">
+		<div class="col-md-12">
+			<h5 class="over-title margin-bottom-15">Alteração de <span class="text-bold">Usuários</span></h5>
+            <p>
+            	Aqui é possível você alterar um Usuário.
+            </p>
+            <div class="panel panel-transparent">
+				<div class="panel-body">
+					<form name="formUser" role="form" ng-submit='updateUser(formUser)' novalidate id="formUserSave">
+						<div ng-include="'assets/views/users/_form.html'"></div>						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

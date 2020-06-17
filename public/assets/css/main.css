@@ -1,0 +1,11 @@
+.w100 {
+	width: 100%;
+}
+
+.checkbox-table label:after {
+	width: 17px !important;
+}
+
+.checkbox-table {
+	margin-left: 10% !important;
+}

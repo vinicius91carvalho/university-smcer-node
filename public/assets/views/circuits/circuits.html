@@ -1,0 +1,60 @@
+<div class="container-fluid container-fullw">
+	<div class="row">
+		<div class="col-md-12">
+			<h5 class="over-title margin-bottom-15">Gerênciamento de <span class="text-bold">Circuitos</span></h5>
+                <p>
+				Aqui é possível você gerênciar os circuitos existentes. É fácil cadastrá-los, editá-los ou removê-los.
+			    </p>
+            <div class="col-xs-7 col-md-10">
+                <p>
+                    <input ng-model='filtro' class="form-control input-md" type='text' placeholder="Filtro" />
+                </p>
+            </div> <!--
+            <div class="col-xs-5 col-md-2">
+                    <a class="btn btn-wide btn-primary" ui-sref="app.manager.newCircuit"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
+            </div> -->
+            <br/>
+			<table class="table table-striped table-hover" id="sample-table-2" ng-table="tableParams" show-filter="true">
+                <thead>
+					<tr>
+                        <th>#ID</th>
+						<th class="sortable" ng-class="{'sort-asc': tableParams.isSortBy('nome', 'asc'), 'sort-desc': tableParams.isSortBy('nome', 'desc')}" ng-click="tableParams.sorting({'nome' : tableParams.isSortBy('nome', 'asc') ? 'desc' : 'asc'})">
+                            <span class='sort-indicator'>Nome</span></th>
+                        <th>Opções</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="circuit in $data | filter: filtro">
+						<td>{{circuit.id}}</td> 
+						<td>{{circuit.nome}}</td> 
+						<td class="center">
+						<div class="visible-md visible-lg hidden-sm hidden-xs">
+							<a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Editar" ui-sref="app.manager.editCircuit({id:circuit.id})"><i class="fa fa-pencil"></i></a>
+							<!--
+							<a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remover" ng-click="deleteCircuit(circuit)" ng-disabled="true"><i class="fa fa-times fa fa-white"></i></a> -->
+						</div>
+						<div class="visible-xs visible-sm hidden-md hidden-lg">
+							<div class="btn-group" dropdown>
+								<button type="button" class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle>
+									<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu pull-right dropdown-light" role="menu">
+									<li>
+										<a href="#" ui-sref="app.manager.editCircuit({id:circuit.id})">
+											Editar
+										</a>
+									</li> <!--
+									<li ng-disabled="true">
+										<a href="#" ng-click="deleteCircuit(circuit)">
+											Remover
+										</a>
+									</li> -->
+								</ul>
+							</div>
+						</div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

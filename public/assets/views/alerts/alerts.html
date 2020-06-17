@@ -1,0 +1,69 @@
+<div class="container-fluid container-fullw">
+	<div class="row">
+		<div class="col-md-12">
+			<h5 class="over-title margin-bottom-15">Gerênciamento de <span class="text-bold">Alertas</span></h5>
+			<p>
+				Aqui é possível você gerênciar os alertas existentes. É fácil cadastrá-los, editá-los ou removê-los.
+			</p>
+			<div class="col-xs-7 col-md-10">
+				<p>
+					<input ng-model='filtro' class="form-control input-md" type='text' placeholder="Filtro" />
+				</p>
+			</div>
+			<div class="col-xs-5 col-md-2">
+				<a class="btn btn-wide btn-primary" ui-sref="app.manager.newAlert"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
+			</div>
+			<br/>
+			<table class="table table-striped table-hover" id="sample-table-2" ng-table="tableParams" show-filter="true">
+				<thead>
+					<tr>
+						<th class="sortable" ng-class="{'sort-asc': tableParams.isSortBy('nome', 'asc'), 'sort-desc': tableParams.isSortBy('nome', 'desc')}" ng-click="tableParams.sorting({'nome' : tableParams.isSortBy('nome', 'asc') ? 'desc' : 'asc'})">
+							<span class='sort-indicator'>Nome</span>
+						</th>
+						<th class="hidden-xs">Potência</th>
+						<th>Circuito</th>
+						<th>Habilitado</th>
+						<th>Opções</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="alert in $data | filter: filtro">
+						<td>{{alert.nome}}</td> 
+						<td class="hidden-xs">{{alert.potencia}}</td>
+						<td class="hidden-xs">{{alert.circuito}}</td>
+						<td class="hidden-xs">
+							<div class="checkbox clip-check check-primary checkbox-table">
+								<input disabled type="checkbox" id="habilitado" value="1" ng-model="alert.habilitado">
+								<label for="habilitado"></label>
+							</div>							
+						</td>
+						<td class="left">
+							<div class="visible-md visible-lg hidden-sm hidden-xs">
+							<a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Editar" ui-sref="app.manager.editAlert({id:alert.id})"><i class="fa fa-pencil"></i></a>
+								<a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remover" ng-click="deleteAlert(alert)"><i class="fa fa-times fa fa-white"></i></a>
+							</div>
+							<div class="visible-xs visible-sm hidden-md hidden-lg">
+								<div class="btn-group" dropdown>
+									<button type="button" class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle>
+										<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu pull-right dropdown-light" role="menu">
+										<li>
+											<a href="#" ui-sref="app.manager.editAlert({id:alert._id})">
+												Editar
+											</a>
+										</li> 
+										<li>
+											<a href="#" ng-click="deleteAlert(alert)">
+												Remover
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
